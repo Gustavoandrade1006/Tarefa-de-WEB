@@ -11,7 +11,8 @@ const getAllTasks = () => tasks;
 const getTaskId = (id) => tasks.find(task => task.id === id);
 
 const getCompleted = () => {
-   return tasks.find(item => item.completed === 1)
+   const response = tasks.filter(item => item.completed === 1)
+   return response;
 };
 
 const createTask = (taskData) => {

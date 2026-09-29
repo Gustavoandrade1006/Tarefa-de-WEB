@@ -12,7 +12,7 @@
         <p>Nenhuma tarefa encontrada!</p>
     <% } else { %>
         <ul>
-            <% tasks.forEach( t => { %>
+            <% tasks.forEach(t => { %>
                 <li>
                     <%= t.id %> - <%= t.title %>: <%= t.completed ? "completo" : "incompleto" %>
                 </li>
