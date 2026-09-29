@@ -5,7 +5,7 @@ const taskController = require('../controllers/taskController');
 
 // Definindo as rotas para as operações CRUD
 
-router.get('/', taskController.getAllTasks);
+router.get('/', taskController.taskHome);
 router.get('/task', taskController.getTaskId);
 router.get('/completed', taskController.getTaskCompleted );
 router.post('/create', taskController.createTask );

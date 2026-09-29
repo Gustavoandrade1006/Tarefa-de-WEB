@@ -1,5 +1,9 @@
  const taskModel = require('../models/taskModel');
 
+const taskHome = (req, res) => {
+   res.render("tasks");
+};
+
  // GET /tasks - Listar todas as tarefas
  const getAllTasks = (req, res) => {
     const tasks = taskModel.getAllTasks();
@@ -61,6 +65,7 @@ module.exports = {
    getTaskCompleted,
    createTask,
    deleteTaskId,
-   updateTaskId
+   updateTaskId,
+   taskHome
 };
  
