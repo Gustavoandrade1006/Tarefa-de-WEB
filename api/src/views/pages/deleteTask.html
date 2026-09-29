@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Task</title>
+</head>
+<body>
+    <h1>Delete Task</h1>
+    <form action="/tasks/delete?_method=DELETE" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        id: <input type="text" name="id">
+        <button type="submit">Deletar tarefa</button>
+    </form>
+</body>
+</html>

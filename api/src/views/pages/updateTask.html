@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Task</title>
+</head>
+<body>
+    <h1>Update Task</h1>
+    <form action="/tasks/update?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        id: <input type="text" name="id">
+        title: <input type="text" name="title">
+        completed: <select name="completed">
+            <option value="0">Incompleto</option>
+            <option value="1">Completo</option>
+        </select>
+        <button type="submit">Atualizar tarefa</button>
+    </form>
+</body>
+</html>
