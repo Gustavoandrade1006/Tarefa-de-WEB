@@ -1,13 +1,14 @@
  const taskModel = require('../models/taskModel');
 
 const taskHome = (req, res) => {
-   res.render("tasks");
+   const tasks = taskModel.getAllTasks();
+   res.render("tasks/tasks", { tasks });
 };
 
  // GET /tasks - Listar todas as tarefas
  const getAllTasks = (req, res) => {
     const tasks = taskModel.getAllTasks();
-    res.status(200).render("tasks/showTasks",{ tasks }); //mudei de json para render
+    res.status(200).render("tasks/partials/allTasks", { tasks }); //mudei de json para render
  };
 
  // GET /tasks/:id - Obter uma tarefa específica
@@ -55,7 +56,8 @@ const deleteTaskId = (req, res) => {
 // PUT tasks/update - Atualizar uma tarefa
 const updateTaskId = (req, res) => {
    const updatedTask = taskModel.updateTaskId(req.body);
-   res.status(200).json(updatedTask);
+   const tasks = taskModel.getAllTasks();
+   res.render("tasks/tasks", { tasks });
 }
 
 

@@ -1,0 +1,35 @@
+<h1>Todas as Tasks</h1>
+    
+<% if (tasks.length === 0) { %>
+    <p>Nenhuma tarefa encontrada!</p>
+<% } else { %>
+    <ul>
+        <% tasks.forEach( t => { %>
+            <li>
+                <%= t.id %> - <%= t.title %>: <%= t.completed ? "completo" : "incompleto" %>
+
+                <form action="">
+                    <input hidden name="id" value="<%= t.id %>">
+
+                    <label>Tarefa: 
+                        <input type="text" name="title" value="<%= t.title %>">
+                    </label>
+                    
+                    <label>Status: 
+                    <select name="completed">
+                        <% if ( t.completed == 1) { %>
+                            <option value="0">Pendente</option>
+                            <option selected value="1">Concluída</option>
+                        <% } else { %>
+                            <option selected value="0">Pendente</option>
+                            <option value="1">Concluída</option>
+                        <% }; %>
+                    </select>
+                    </label>
+                    <button>Atualizar</button>
+                    <button>Deletar</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+<% }; %>
