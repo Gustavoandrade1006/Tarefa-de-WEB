@@ -8,12 +8,14 @@ let tasks = [
 // Funções para manipular as tarefas
 const getAllTasks = () => tasks;
 
-const getTaskId = (id) => tasks.find(task => task.id === id);
+const getTaskId = (id) => tasks.find(task => task.id == id);
 
 const getCompleted = () => {
-   const response = tasks.filter(item => item.completed === 1)
+   const response = tasks.filter(item => item.completed === 1);
    return response;
 };
+
+const getTaskName = (title) => tasks.filter(task => task.title.trim().toLowerCase().includes(title.trim().toLowerCase()));
 
 const createTask = (taskData) => {
    const newTask = {
@@ -39,7 +41,7 @@ const updateTaskId = (taskData) => {
    const updatedTask = {
       id: taskData.id,
       title: taskData.title || currentTask.title,
-      completed: taskData.completed || currentTask.completed
+      completed: taskData.completed
    }
 
    tasks = tasks.map(task => task.id == taskData.id ? updatedTask : task);
@@ -50,6 +52,7 @@ const updateTaskId = (taskData) => {
 module.exports = {
    getAllTasks,
    getTaskId,
+   getTaskName,
    getCompleted,
    createTask,
    deleteTaskId,

@@ -11,6 +11,7 @@ router.get('/completed', taskController.getTaskCompleted );
 router.post('/create', taskController.createTask );
 router.delete('/delete', taskController.deleteTaskId);
 router.put('/update', taskController.updateTaskId);
+router.get('/search', taskController.getTasksTitle);
 
 
 module.exports = router;

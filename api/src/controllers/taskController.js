@@ -38,11 +38,17 @@ const getTaskCompleted = (req, res) => {
    res.status(200).render("tasks/completedTasks", { tasks });
 };
 
+const getTasksTitle = (req, res) => {
+   const title = req.query.title || "";
+   const tasks = taskModel.getTaskName(title);
+   res.render("tasks/tasks", { tasks });
+};
+
 
 // POST tasks/create - Criar uma nova tarefa
 const createTask = (req, res) => {
    const newTask = taskModel.createTask(req.body);
-   res.status(201).json(newTask);
+   res.redirect("/tasks");
 };
 
 
@@ -50,14 +56,13 @@ const createTask = (req, res) => {
 const deleteTaskId = (req, res) => {
    const { id } = req.body;
    taskModel.deleteTaskId(parseInt(id));
-   res.status(204).redirect('../index.html');;
+   res.redirect("/tasks");
 }
 
 // PUT tasks/update - Atualizar uma tarefa
 const updateTaskId = (req, res) => {
    const updatedTask = taskModel.updateTaskId(req.body);
-   const tasks = taskModel.getAllTasks();
-   res.render("tasks/tasks", { tasks });
+   res.redirect("/tasks");
 }
 
 
@@ -65,6 +70,7 @@ module.exports = {
    getAllTasks ,
    getTaskId,
    getTaskCompleted,
+   getTasksTitle,
    createTask,
    deleteTaskId,
    updateTaskId,

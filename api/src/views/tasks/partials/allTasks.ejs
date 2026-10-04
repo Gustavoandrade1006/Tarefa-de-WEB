@@ -8,7 +8,7 @@
             <li>
                 <%= t.id %> - <%= t.title %>: <%= t.completed ? "completo" : "incompleto" %>
 
-                <form action="">
+                <form method="POST">
                     <input hidden name="id" value="<%= t.id %>">
 
                     <label>Tarefa: 
@@ -26,8 +26,8 @@
                         <% }; %>
                     </select>
                     </label>
-                    <button>Atualizar</button>
-                    <button>Deletar</button>
+                    <button formaction="/tasks/update?_method=PUT">Atualizar</button>
+                    <button formaction="/tasks/delete?_method=DELETE">Deletar</button>
                 </form>
             </li>
         <% }); %>
