@@ -10,8 +10,8 @@ const getAllTasks = () => tasks;
 
 const getTaskId = (id) => tasks.find(task => task.id == id);
 
-const getCompleted = () => {
-   const response = tasks.filter(item => item.completed === 1);
+const getByStatus = (status) => {
+   const response = tasks.filter(item => item.completed == status);
    return response;
 };
 
@@ -33,8 +33,8 @@ const deleteTaskId = (id) => {
 
 const updateTaskId = (taskData) => {
    currentTask = getTaskId(taskData.id);
-   
-   if(!currentTask) {
+
+   if (!currentTask) {
       return 'ID não identificado.'
    }
 
@@ -49,12 +49,19 @@ const updateTaskId = (taskData) => {
    return updatedTask;
 };
 
+const deleteAllTasks = () => {
+   tasks = [];
+   return tasks;
+};
+
+
 module.exports = {
-   getAllTasks,
+   createTask,
+   updateTaskId,
+   deleteTaskId,
+   deleteAllTasks,
    getTaskId,
    getTaskName,
-   getCompleted,
-   createTask,
-   deleteTaskId,
-   updateTaskId
+   getAllTasks,
+   getByStatus
 };
