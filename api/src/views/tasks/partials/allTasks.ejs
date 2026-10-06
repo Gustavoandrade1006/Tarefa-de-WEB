@@ -1,22 +1,22 @@
-<h1>Todas as Tasks</h1>
+<div class="card shadow-sm"><div class="card-body"><h1 class="h4 mb-3">Todas as Tasks</h1>
     
 <% if (tasks.length === 0) { %>
-    <p>Nenhuma tarefa encontrada!</p>
+    <p class="text-muted">Nenhuma tarefa encontrada!</p>
 <% } else { %>
-    <ul>
+    <ul class="list-group list-group-flush">
         <% tasks.forEach( t => { %>
-            <li>
+            <li class="list-group-item">
                 <%= t.id %> - <%= t.title %>: <%= t.completed ? "completo" : "incompleto" %>
 
-                <form method="POST">
+                <form method="POST" class="mt-3">
                     <input hidden name="id" value="<%= t.id %>">
 
-                    <label>Tarefa: 
-                        <input type="text" name="title" value="<%= t.title %>">
+                    <label class="form-label">Tarefa: 
+                        <input class="form-control" type="text" name="title" value="<%= t.title %>">
                     </label>
                     
-                    <label>Status: 
-                    <select name="completed">
+                    <label class="form-label">Status: 
+                    <select class="form-select" name="completed">
                         <% if ( t.completed == 1) { %>
                             <option value="0">Pendente</option>
                             <option selected value="1">Concluída</option>
@@ -26,8 +26,8 @@
                         <% }; %>
                     </select>
                     </label>
-                    <button formaction="/tasks/update?_method=PUT">Atualizar</button>
-                    <button formaction="/tasks/delete?_method=DELETE">Deletar</button>
+                    <button class="btn btn-primary me-2" formaction="/tasks/update?_method=PUT">Atualizar</button>
+                    <button class="btn btn-danger" formaction="/tasks/delete?_method=DELETE">Deletar</button>
                 </form>
             </li>
         <% }); %>

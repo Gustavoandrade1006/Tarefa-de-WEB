@@ -1,9 +1,10 @@
 <%- include('partials/head') %>
-<header>
-    <h1>Cabeçalho</h1>
+<header class="container py-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="h3 mb-0">Gerenciador de tarefas</h1>
+    </div>
 </header>
-<h1>Bem vindo, <%= nome %>!</h1>
-<a href="/tasks">
-    <button>Tarefas</button>
-</a>
+<main class="container py-5"><div class="card shadow-sm"><div class="card-body"><h1 class="h2">Bem vindo, <%= nome %>!</h1>
+<a href="/tasks" class="btn btn-primary">Tarefas</a>
+</div></div></main>
 <%- include('partials/footer') %>
